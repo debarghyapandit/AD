@@ -41,7 +41,7 @@ class preprocess(object):
         scale = StandardScaler()
         data = scale.fit_transform(self.data)
         self.data = pd.DataFrame(data, columns=self.data.columns)
-        joblib.dump(scale, '/tmp/ad/scale')
+        joblib.dump(scale, 'ad/scale')
 
     def process(self):
         """
