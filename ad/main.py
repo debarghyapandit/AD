@@ -29,7 +29,7 @@ def entry(self):
       If RF model is not present in the path, run train() to train the model for the prediction.
       Calls predict function for every 1 second(for now as we are using simulated data).
     """
-    if not os.path.isfile('/tmp/ad/RF'):
+    if not os.path.isfile('ad/RF'):
         train()
     schedule.every(1).seconds.do(predict, self)
     while True:
@@ -51,7 +51,7 @@ def predict(self):
 def predict_anomaly(self):
     # The read_csv logic will be modified when we are going to fetch the data from database via sdl api.
     # Read the input csv file
-    ue_data = pd.read_csv('/tmp/ad/ue_test.csv')
+    ue_data = pd.read_csv('ad/ue_test.csv')
 
     # Parse the ue data and predict the anomaly records for the randomly selected UEID
     data = parse(ue_data)
