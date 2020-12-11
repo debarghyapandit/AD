@@ -31,10 +31,10 @@ class modelling(object):
            Load the saved model and map the predicted category into Category field.
            Map UEID, MeasTimestampRF with the predicted result.
         """
-        model = joblib.load('/tmp/ad/' + name)
+        model = joblib.load('ad/' + name)
         pred = model.predict(self.data)
         data = self.data.copy()
-        le = joblib.load('/tmp/ad/LabelEncoder')
+        le = joblib.load('ad/LabelEncoder')
         data['Category'] = le.inverse_transform(pred)
         data['MeasTimestampRF'] = self.time
         data['UEID'] = self.id
@@ -46,7 +46,7 @@ def compare(df):
      If the category of UEID is present in the segment file, it is considered as normal(0)
      otherwise, the sample is considered as anomaly.
     """
-    with open("/tmp/ad/ue_seg.json", "r") as json_data:
+    with open("ad/ue_seg.json", "r") as json_data:
         segment = json.loads(json_data.read())
     anomaly = []
     for i in df.index:
