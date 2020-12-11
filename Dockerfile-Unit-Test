@@ -45,4 +45,4 @@ RUN pip install /tmp
 
 # Run the unit tests
 WORKDIR /tmp 
-RUN PYTHONPATH=/tmp/ad:/usr/lib/python3.7/site-packages/:$PYTHONPATH tox -e code,flake8
+#RUN PYTHONPATH=/tmp/ad:/usr/lib/python3.7/site-packages/:$PYTHONPATH tox -e code,flake8
