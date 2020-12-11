@@ -25,7 +25,7 @@ import json
 
 
 def test_RFtrainmodel(monkeypatch):
-    if not os.path.isfile('ad/RF'):
+    if not os.path.isfile('/ad/RF'):
         train()
 
 
