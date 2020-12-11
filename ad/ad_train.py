@@ -48,7 +48,7 @@ class modelling(object):
 
         df = self.data.copy()
         hdb = hdbscan.HDBSCAN(min_cluster_size=16000, min_samples=5, prediction_data=True).fit(df)
-        joblib.dump(hdb, '/tmp/ad/hdbscan')
+        joblib.dump(hdb, 'ad/hdbscan')
         self.data['Category'] = hdb.labels_  # Stores the labels into category field
 
     def RandomForest(self, y):
@@ -59,12 +59,12 @@ class modelling(object):
         df = self.data.copy()
         le = LabelEncoder()
         y = le.fit_transform(y)
-        joblib.dump(le, '/tmp/ad/LabelEncoder')
+        joblib.dump(le, 'ad/LabelEncoder')
         X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.20, stratify=y, random_state=42)
         rf = RandomForestClassifier(max_depth=9, random_state=0)
         rf.fit(X_train, y_train)  # Fit the RFC model
         print("X_train cols:", X_train.columns)
-        joblib.dump(rf, '/tmp/ad/RF')  # Save the RF model
+        joblib.dump(rf, '/ad/RF')  # Save the RF model
 
 
 def train():
@@ -73,7 +73,7 @@ def train():
      Read all the csv file in the current path and create trained model
     """
     print('Training Starts : ')
-    path = '/tmp/ad/ue_data/'
+    path = 'ad/ue_data/'
     df = pd.DataFrame()
     # Read all the csv files and store the combined data into df
     for file in os.listdir(path):
