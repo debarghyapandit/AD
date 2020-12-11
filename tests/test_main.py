@@ -32,7 +32,7 @@ def test_RFtrainmodel(monkeypatch):
 def test_predict_anomaly(monkeypatch):
     # The read_csv logic will be modified when we are going to fetch the data from database via sdl api.
     # Read the input csv file
-    ue_data = pd.read_csv('ad/ue_test.csv')
+    ue_data = pd.read_csv('/ad/ue_test.csv')
 
     # Parse the ue data and predict the anomaly records for the randomly selected UEID
     data = parse(ue_data)
