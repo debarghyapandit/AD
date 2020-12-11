@@ -64,7 +64,7 @@ class modelling(object):
         rf = RandomForestClassifier(max_depth=9, random_state=0)
         rf.fit(X_train, y_train)  # Fit the RFC model
         print("X_train cols:", X_train.columns)
-        joblib.dump(rf, '/ad/RF')  # Save the RF model
+        joblib.dump(rf, 'ad/RF')  # Save the RF model
 
 
 def train():
