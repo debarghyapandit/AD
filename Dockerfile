@@ -38,8 +38,7 @@ RUN conda install scikit-learn
 COPY setup.py /tmp
 COPY LICENSE.txt /tmp/
 # RUN mkdir -p /tmp/ad/
-COPY ad/ /tmp/ad
+COPY ad/ /ad
 RUN pip install /tmp
 ENV PYTHONUNBUFFERED 1
-CMD PYTHONPATH=/tmp/ad:/usr/lib/python3.7/site-packages/:$PYTHONPATH run-ad.py
-# CMD python -W ignore /tmp/ad/main.py
+CMD PYTHONPATH=/ad:/usr/lib/python3.7/site-packages/:$PYTHONPATH run-ad.py
